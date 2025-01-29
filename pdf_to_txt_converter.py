@@ -13,4 +13,5 @@ def pdf_to_text(pdf_path, txt_path):
 
 
 # Example usage
-pdf_to_text("documents/Harry-Potter-and-the-Chamber-of-Secrets.pdf", "documents/Harry-Potter-and-the-Chamber-of-Secrets.txt")
+pdf_to_text("documents/Harry-Potter-and-the-Chamber-of-Secrets.pdf",
+            "ragtest/input/Harry-Potter-and-the-Chamber-of-Secrets.txt")
