@@ -3,7 +3,7 @@ import dotenv
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFLoader
-from langchain_openai import OpenAIEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 dotenv.load_dotenv()
 
@@ -23,8 +23,9 @@ if not os.path.exists(persistent_dir):
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     docs = text_splitter.split_documents(documents)
 
-    embeddings = OpenAIEmbeddings(
-        model="text-embedding-3-small"
+    embeddings = GoogleGenerativeAIEmbeddings(
+        model="models/text-embedding-004",
+        google_api_key=os.getenv("GEMINI_API_KEY"),
     )
 
     db = Chroma.from_documents(
